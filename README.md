@@ -1,2 +1,3 @@
-# Image_Processing_Matlab_course
-Image Processing course in MATLAB
+# Image Processing Matlab course
+This repo is for begineers in Image Processing.
+This has been developed in Matlab.
