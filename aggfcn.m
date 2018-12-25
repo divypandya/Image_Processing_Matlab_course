@@ -7,6 +7,7 @@ function Qa = aggfcn(Q)
 % 
 % q = QA(V) 
 Qa = @aggregate; 
+%***************************************************%
 function q = aggregate(v) 
     q = Q{1}(v); 
     for i=2:numel(Q) 

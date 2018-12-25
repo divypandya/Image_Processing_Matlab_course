@@ -16,10 +16,10 @@ rules = {udark; ugray; ubright};
 outmf = {udarker, umidgray, ubrighter};
 F = fuzzysysfcn(rules, outmf, [0 1]); 
 % Use F to construct an intensity transformation function.
-f1=imread('cameraman.tif');
+f1=imread('mandi.tif');
 z = linspace(0, 1, 256); 
 % f is of class uint8. 
 T = F(z); 
 % Transform the intensities of fusing T.
-G = intrans(f1, 'specified', T); 
-figure, imshow(G);
+g = intrans(f1, 'specified', T);
+figure, imshow(g);

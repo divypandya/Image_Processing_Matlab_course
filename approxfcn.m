@@ -22,7 +22,7 @@ end
 % Initialize the lookup table. 
 table = zeros(size(inputs{1})); 
 % Initialize waitbar. 
-bar = waitbar(O, 'Working .. . ' ); 
+bar = waitbar(0, 'Working .. . ' ); 
 % Initialize cell array used to pass inputs to F. 
 Zk = cell(1, num_inputs); 
 L = numel(inputs{1}); 
