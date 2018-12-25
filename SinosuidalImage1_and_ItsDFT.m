@@ -1,0 +1,16 @@
+fx=5;
+f=10*fx;
+T=1/f;
+t=0:T:20*pi;
+t=t(1:100);
+x=sin(2*pi*fx*t);
+x=repmat(255*(x+1)/2,100,1);
+I=uint8(x);
+F=fftshift(fft2(x));
+xh=ifft2(ifftshift(F));
+figure (1);
+imshow(I);
+figure (2);
+imshow(abs(F));
+figure (3);
+imshow(uint8(xh));
