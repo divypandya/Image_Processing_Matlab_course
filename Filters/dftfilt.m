@@ -23,6 +23,7 @@ F = fft2(f, size(H, 1 ) , size(H, 2)) ;
 % Perform filtering.
 G=H.*F;
 figure,imshow(log(1+abs(fftshift(G))),[])
+title('Frequency spectrum of filtered image');
 g = ifft2(G); 
 % Crop to original size. 
 g = g(1:size(f, 1), 1:size(f, 2)); 

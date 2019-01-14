@@ -12,9 +12,13 @@ F=fft2(f,PQ(1),PQ(2));
 g=dftfilt(f,H);
 g=revertclass(g);
 figure,imshow(fftshift(H));
+title('Low Pass Filter in Frequency domain');
 figure,imshow(log(1+abs(fftshift(F))),[]);
-figure,imshow(g); 
+title('FFT spectra of Input Image after Logarithmic Tranformation');
+figure,imshow(g);
+title('Filtered image');
 figure,mesh(double(fftshift(H(1:10:end, 1:10:end))));
+title('Mesh grid view of Low-Pass Filter');
 axis tight
 colormap(gray);
 axis off

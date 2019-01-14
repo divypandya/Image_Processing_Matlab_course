@@ -2,7 +2,7 @@
 % frequency domain
 %
 % using user created M-functions
-f=imread('mri.tif');
+f=imread('cameraman.tif');
 [f, revertclass]=tofloat(f);
 PQ=paddedsize(size(f));
 % Notch reject filtering using cnotch() function
@@ -18,12 +18,22 @@ g2=dftfilt(f,H2);
 g1=revertclass(g1);
 g2=revertclass(g2);
 figure,imshow(fftshift(H1));
+title('Frequency Spectra of Circular Notch-Reject filter');
 figure,imshow(fftshift(H2));
+title('Frequency Spectra of Rectangular Notch-Reject filter');
 figure,imshow(log(1+abs(fftshift(F))),[]);
+title('FFT spectra of input image after Logarithmic Tranformation');
 figure,imshow(g1); 
+title('Filtered image using Circular-Notch-Reject');
 figure,imshow(g2);
+title('Filtered image using Rectangular-Notch-Reject');
 figure,mesh(double(fftshift(H1(1:5:end,1:5:end))));
+title('Mesh grid of Circular Notch-Reject Filter');
+axis tight
+colormap([0 0 0]);
+axis off
 figure,mesh(double(fftshift(H2(1:5:end,1:5:end))));
-axis tight;
+title('Mesh grid of Rectangular Notch-Reject Filter');
+axis tight
 colormap([0 0 0]);
 axis off;
