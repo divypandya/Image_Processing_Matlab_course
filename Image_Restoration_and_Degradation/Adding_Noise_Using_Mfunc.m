@@ -20,3 +20,12 @@ figure,imshow(S,[]);
 title('FFT Spectrum of Periodic Noise');
 figure, imshow(r,[]);
 title('Periodic Noise in Spatial Domain');
+%
+%Estimating Noise Parameters
+[B,c,r]=roipoly(f);
+[h,npix]=histroi(f,c,r);
+figure, bar(h,1);
+[v,unv]=statmoments(h,2);
+x=imnoise2('gaussian',npix,1,unv(1),unv(2)^0.5);
+figure, hist(x,round(unv(1)-(unv(2)^0.5)));
+axis([0 250 0 250]);

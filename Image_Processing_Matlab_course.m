@@ -1,6 +1,11 @@
-I=imread('coloredChips.png');
-imshow(I);
-d=imdistline;
-delete(d);
-greyImage=rgb2gray(I);
-imshow(greyImage);
+f=imread('cameraman.tif');
+[f, revertclass]=tofloat(f);
+PQ=paddedsize(size(f));
+DO=0.05*PQ(2);
+H=lpfilter('gaussian',PQ(1),PQ(2),DO);
+F=fft2(f,PQ(1),PQ(2));
+g=dftfilt(f,H);
+g=revertclass(g);
+figure,imshow(fftshift(H));
+figure,imshow(log(1+abs(fftshift(F))),[]);
+figure,imshow(g); 

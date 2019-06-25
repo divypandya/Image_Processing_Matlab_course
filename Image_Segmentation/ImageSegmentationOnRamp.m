@@ -1,0 +1,20 @@
+f = imread('rice.png');
+f = repmat(f,[1 1 3]);
+figure,imshow(f);
+
+mask = roipoly(f);
+red = immultiply(mask,f(:,:,1));
+green = immultiply(mask,f(:,:,2));
+blue = immultiply(mask,f(:,:,3));
+g = cat(3,red,green,blue);
+figure, imshow(g,[]);
+[M,N,k] = size(g);
+I = reshape(g,M*N,3);
+idx = mask~=0;
+I = double(I(idx,1:3));
+[C,m] = covmatrix(I);
+d = diag(C);
+sd = sqrt(d)';
+T = max(sd);
+ET = colorseg('euclidean',f,T,m);
+figure, imshow(ET,[]);

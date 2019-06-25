@@ -34,11 +34,11 @@ switch type
         f = harmean(g, m, n); 
     case 'chmean' 
         f = charmean(g, m, n, Q) ; 
-    case ' median' 
+    case 'median' 
         f = medfilt2 (g , [m n] , 'symmetric'); 
     case 'max' 
         f = imdilate(g, ones(m, n)); 
-    case 'mini' 
+    case 'min' 
         f = imerode(g, ones(m, n)); 
     case 'midpoint' 
         f1 = ordfilt2(g, 1, ones(m, n), 'symmetric'); 
